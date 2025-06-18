@@ -3,9 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Tic Tac Toe</title>
 </head>
 <body>
-  
+  <main>
+    <h1>Jogo da Velha</h1>
+    <div id="players">
+      <div>
+      <label for="">Jogador O</label>
+      <input type="text" name="player1Name" id="player1Name">
+    </div>
+    <div>
+      <label for="">Jogador X</label>
+      <input type="text" name="player2Name" id="player2Name">
+    </div>
+    </div>
+    <h2>Vez do Jogador <span id="playerTurn">X</span></h2>
+    <div id="fieldPlay">
+      <span id="area1"></span>
+      <span id="area2"></span>
+      <span id="area3"></span>
+      <span id="area4"></span>
+      <span id="area5"></span>
+      <span id="area6"></span>
+      <span id="area7"></span>
+      <span id="area8"></span>
+      <span id="area9"></span>
+    </div>
+    <h2 id="result"></h2>
+    <button type="button">Reiniciar</button>
+  </main>
 </body>
 </html>

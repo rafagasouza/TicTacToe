@@ -1,0 +1,60 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main{
+  background-color: #121212;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h1, h2, label{
+  color: green;
+}
+
+#players{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+#players div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 200px;
+}
+
+#fieldPlay{
+  background-color: #f9f9f9;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 5px;
+  padding: 0.5rem;
+  margin: 1.5rem 0;
+  border-radius: 5px;
+  
+}
+
+#fieldPlay span{
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  background-color: #FFD700;
+}
