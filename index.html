@@ -11,28 +11,31 @@
     <h1>Jogo da Velha</h1>
     <div id="players">
       <div>
-      <label for="">Jogador O</label>
-      <input type="text" name="player1Name" id="player1Name">
+      <label for="player1Name">Jogador O</label>
+      <input type="text" name="player" id="player1Name">
     </div>
     <div>
-      <label for="">Jogador X</label>
-      <input type="text" name="player2Name" id="player2Name">
+      <label for="player2Name">Jogador X</label>
+      <input type="text" name="player" id="player2Name">
     </div>
     </div>
-    <h2>Vez do Jogador <span id="playerTurn">X</span></h2>
+
     <div id="fieldPlay">
-      <span id="area1"></span>
-      <span id="area2"></span>
-      <span id="area3"></span>
-      <span id="area4"></span>
-      <span id="area5"></span>
-      <span id="area6"></span>
-      <span id="area7"></span>
-      <span id="area8"></span>
-      <span id="area9"></span>
+      <span id="area1" class="field"></span>
+      <span id="area2" class="field"></span>
+      <span id="area3" class="field"></span>
+      <span id="area4" class="field"></span>
+      <span id="area5" class="field"></span>
+      <span id="area6" class="field"></span>
+      <span id="area7" class="field"></span>
+      <span id="area8" class="field"></span>
+      <span id="area9" class="field"></span>
     </div>
-    <h2 id="result"></h2>
+
+    <h2 id="player" >Vez do Jogador <span id="playerTurn"></span></h2>
+
     <button type="button">Reiniciar</button>
   </main>
+  <script src="./index.js"></script>
 </body>
 </html>
