@@ -1,54 +1,35 @@
-/* /Vamos pegar os campos e dar função a eles
-const fields = document.querySelectorAll(".field");
-const playerTurn = document.getElementById("playerTurn");
-
-/*fields.forEach((item) => {
-  playerTurn.innerText = "O";
-  item.addEventListener("click", (ev) => {
-    if (ev.currentTarget.innerText === "" && playerTurn.innerHTML == 'O') {
-      item.style.backgroundColor = "red";
-      ev.currentTarget.innerText = "O";
-      playerTurn.innerText = "X";
-    } else {
-      if (ev.currentTarget.innerText === "" && playerTurn.innerText === "X") {
-        item.style.backgroundColor = "red";
-        ev.currentTarget.innerText = "X";
-        playerTurn.innerText = "O";
-      } else {
-        item.style.backgroundColor = "red";
-        ev.currentTarget.innerText = "O";
-        playerTurn.innerText = "X";
-      }
-    }
-  });
-});
-
-let currentPlayer = "O"; //aqui temos o elemento atual
-playerTurn.innerText = currentPlayer; //ja colocamos no campo do jogador atual o "O"
-
-fields.forEach((item) => {
-  item.addEventListener("click", (ev) => {
-    const field = ev.currentTarget; //esta capturando o span que foi clicado 
-
-    // Só marca se o campo estiver vazio
-    if (field.innerText === "") {
-      field.innerText = currentPlayer; //colocamos no elemento que gerou o evento o texto 
-      field.style.backgroundColor = "red";
-
-      // Alterna o jogador
-      currentPlayer = currentPlayer === "O" ? "X" : "O";
-      playerTurn.innerText = currentPlayer;
-    }
-  });
-});
-
-*/
 
 const fields = document.querySelectorAll(".field"); //selecionei o nodelist com os spans
 const playerTurn = document.getElementById("playerTurn"); //selecionei o jogador que atual
  const player1Name = document.getElementById("player1Name"); //selecionei o primeiro jogador
   const player2Name = document.getElementById("player2Name"); //selecionei o segundo jogador
 
+  function useToast(text){
+
+  Toastify({
+        text: text,
+        duration: 3000,                 // Tempo em milissegundos (3 segundos)
+        gravity: "top",                 // top ou bottom
+        position: "right",              // left, center ou right
+        backgroundColor: "green",        // Cor de fundo
+      }).showToast();
+
+}
+
+function validatePlayers() {
+   if (player1Name.value === "" || player2Name.value === "") {
+      Toastify({
+        text: "Por favor, preencha o nome dos dois jogadores!",
+        duration: 3000,
+        gravity: "top",
+        position: "center",
+        backgroundColor: "red",
+      }).showToast();
+      return false;  // Bloqueia a continuação
+    }
+
+    return true;  // Se está tudo preenchido
+  }
 
 //vamos criar uma variavel com os nomes associados aos simbolos X e O.
 
@@ -97,17 +78,17 @@ function checkWinner() {
       });
 
 
-      alert(`O jogador ${winnerName} venceu!`);
-      return true; //finaliza o jogo
-    }
-
-    if (!board.includes("")) {
-      alert("Empate!");
-      fields.forEach((f) => (f.style.backgroundColor = ""));
+       useToast(`O vencedor é o jogador ${winnerName}`)
       return true; //finaliza o jogo
     }
 
   }
+
+  if (!board.includes("")) {
+      useToast('Empatou!')
+      fields.forEach((f) => (f.style.backgroundColor = ""));
+      return true; //finaliza o jogo
+    }
 
   return false; //significa que ainda tem casas pra preencher
 }
@@ -120,26 +101,30 @@ playerTurn.innerText = currentPlayer;
 
 fields.forEach((item, index) => {
   item.addEventListener("click", (ev) => {
+
+    // PRIMEIRO: validar os jogadores antes de jogar
+    if (!validatePlayers()) {
+      return;  // Se não tiver os dois nomes, para o jogo
+    }
+
     const field = ev.currentTarget;
 
-    // Só deixa jogar se o campo estiver vazio
     if (field.innerText === "") {
       field.innerText = currentPlayer;
       field.style.backgroundColor = "red";
-      board[index] = currentPlayer; // Salva no array board
+      board[index] = currentPlayer;
 
       if (checkWinner()) {
-        // Se alguém ganhou ou empatou, bloqueia o tabuleiro
         fields.forEach(f => f.style.pointerEvents = "none");
         return;
       }
 
-      // Troca o jogador
       currentPlayer = currentPlayer === "O" ? "X" : "O";
       playerTurn.innerText = currentPlayer;
     }
   });
 });
+
 
 
 const restartButton = document.getElementById("restart");
