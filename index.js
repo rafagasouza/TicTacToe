@@ -152,6 +152,7 @@ restartButton.addEventListener("click", () => {
   fields.forEach((field) => {
     field.innerText = "";
     field.classList.remove('winner'); // Remove a cor de fundo
+    field.style.backgroundColor = '#FFD700'; // Remove a cor de fundo
     field.style.pointerEvents = "auto"; // Permite clicar de novo
   });
 
