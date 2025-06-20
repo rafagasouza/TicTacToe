@@ -31,7 +31,7 @@ h1, h2, label {
   flex-wrap: wrap;               /* Permite que os campos quebrem em telas pequenas */
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 #players div {
@@ -48,10 +48,10 @@ h1, h2, label {
   grid-template-columns: repeat(3, 1fr);  /* Grid flexível */
   gap: 5px;
   padding: 0.5rem;
-  margin: 1.5rem 0;
+  margin: 1rem 0;
   border-radius: 5px;
   width: 90%;                    /* Responsivo */
-  max-width: 320px;              /* Limite máximo pra não ficar gigante */
+  max-width: 300px;              /* Limite máximo pra não ficar gigante */
 }
 
 #fieldPlay span {
@@ -67,7 +67,7 @@ h1, h2, label {
 }
 
 #player {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 input {
@@ -75,6 +75,7 @@ input {
   width: 100%;
   border-radius: 5px;
   border: 1px solid #ccc;
+  margin-top: 0.3rem;
 }
 
 button {
@@ -84,7 +85,7 @@ button {
   background-color: green;
   color: white;
   cursor: pointer;
-  margin-top: 1rem;
+  margin-top: 0.6rem;
 }
 
 button:hover {
@@ -99,12 +100,18 @@ button:hover {
 
 /* Responsividade extra para telas muito pequenas (ex: celular) */
 @media (max-width: 600px) {
-  h1 {
+  h1, h2{
     font-size: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 
   #fieldPlay span {
     font-size: 1.5rem;
+  }
+
+  #fieldPlay{
+    width: 90%;                    /* Responsivo */
+  max-width: 250px; 
   }
 
   label {
@@ -113,9 +120,16 @@ button:hover {
 
   input {
     font-size: 0.9rem;
+    height: 1.5rem;
   }
 
   button {
     font-size: 0.9rem;
   }
+
+  fieldPlay{
+    max-width: 200px;
+  }
+
+  
 }

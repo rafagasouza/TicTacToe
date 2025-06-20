@@ -103,6 +103,7 @@ function checkWinner() {
 
     if (!board.includes("")) {
       alert("Empate!");
+      fields.forEach((f) => (f.style.backgroundColor = ""));
       return true; //finaliza o jogo
     }
 
