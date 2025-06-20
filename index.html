@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Tic Tac Toe</title>
-</head>
-<body>
-  <main>
-    <h1>Jogo da Velha</h1>
-    <div id="players">
-      <div>
-      <label for="player1Name">Jogador O</label>
-      <input type="text" name="player" id="player1Name">
-    </div>
-    <div>
-      <label for="player2Name">Jogador X</label>
-      <input type="text" name="player" id="player2Name">
-    </div>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+    <main>
+      <h1>Jogo da Velha</h1>
+      <div id="players">
+        <div>
+          <label for="player1Name">Jogador O</label>
+          <input type="text" name="player" id="player1Name" required/>
+        </div>
+        <div>
+          <label for="player2Name">Jogador X</label>
+          <input type="text" name="player" id="player2Name" required/>
+        </div>
+      </div>
 
-    <div id="fieldPlay">
-      <span id="area1" class="field"></span>
-      <span id="area2" class="field"></span>
-      <span id="area3" class="field"></span>
-      <span id="area4" class="field"></span>
-      <span id="area5" class="field"></span>
-      <span id="area6" class="field"></span>
-      <span id="area7" class="field"></span>
-      <span id="area8" class="field"></span>
-      <span id="area9" class="field"></span>
-    </div>
+      <div id="fieldPlay">
+        <span id="area1" class="field"></span>
+        <span id="area2" class="field"></span>
+        <span id="area3" class="field"></span>
+        <span id="area4" class="field"></span>
+        <span id="area5" class="field"></span>
+        <span id="area6" class="field"></span>
+        <span id="area7" class="field"></span>
+        <span id="area8" class="field"></span>
+        <span id="area9" class="field"></span>
+      </div>
 
-    <h2 id="player" >Vez do Jogador <span id="playerTurn"></span></h2>
+      <h2 id="player">Vez do Jogador <span id="playerTurn"></span></h2>
 
-    <button type="button">Reiniciar</button>
-  </main>
-  <script src="./index.js"></script>
-</body>
+      <button type="button" id="restart">Reiniciar</button>
+    </main>
+    <script src="./index.js"></script>
+  </body>
 </html>

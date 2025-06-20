@@ -1,10 +1,10 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-main{
+main {
   background-color: #121212;
   width: 100vw;
   height: 100vh;
@@ -12,49 +12,110 @@ main{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow-x: hidden;
+  padding: 1rem;
 }
 
-h1{
+h1 {
   text-align: center;
   margin-bottom: 2rem;
+  font-size: 2rem;
 }
 
-h1, h2, label{
+h1, h2, label {
   color: green;
 }
 
-#players{
+#players {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-wrap: wrap;               /* Permite que os campos quebrem em telas pequenas */
+  justify-content: center;
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
-#players div{
+#players div {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 200px;
+  width: 150px;                  /* Reduz pra caber melhor em telas pequenas */
 }
 
-#fieldPlay{
+#fieldPlay {
   background-color: #f9f9f9;
   display: grid;
-  grid-template-columns: repeat(3, 100px);
+  grid-template-columns: repeat(3, 1fr);  /* Grid flexível */
   gap: 5px;
   padding: 0.5rem;
   margin: 1.5rem 0;
   border-radius: 5px;
-  
+  width: 90%;                    /* Responsivo */
+  max-width: 320px;              /* Limite máximo pra não ficar gigante */
 }
 
-#fieldPlay span{
-  width: 100px;
-  height: 100px;
+#fieldPlay span {
+  aspect-ratio: 1 / 1;           /* Mantém os spans quadrados */
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
   background-color: #FFD700;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#player {
+  margin-bottom: 1rem;
+}
+
+input {
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background-color: darkgreen;
+}
+
+/* Quando o jogador vencer, as casas da linha vencedora vão ficar verdes (feito no JS) */
+.winner {
+  background-color: green !important;
+  color: white;
+}
+
+/* Responsividade extra para telas muito pequenas (ex: celular) */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  #fieldPlay span {
+    font-size: 1.5rem;
+  }
+
+  label {
+    font-size: 0.9rem;
+  }
+
+  input {
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+  }
 }
